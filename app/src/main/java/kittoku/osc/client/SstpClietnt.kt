@@ -152,7 +152,7 @@ internal class SstpClient(val bridge: ClientBridge) {
         val hlak = when (bridge.currentAuth) {
             is AuthOptionPAP -> ByteArray(32)
             is AuthOptionMSChapv2 -> generateChapHLAK(bridge.HOME_PASSWORD, bridge.chapMessage)
-            else -> throw NotImplementedError()
+            else -> throw NotImplementedError(bridge.currentAuth.protocol.toString())
         }
 
         val cmkSeed = "SSTP inner method derived CMK".toByteArray(Charset.forName("US-ASCII"))
@@ -177,12 +177,12 @@ internal class SstpClient(val bridge: ClientBridge) {
             SSTP_MESSAGE_TYPE_CALL_DISCONNECT_ACK -> SstpCallDisconnectAck()
             SSTP_MESSAGE_TYPE_CALL_ABORT -> SstpCallAbort()
 
-            else -> throw NotImplementedError()
+            else -> throw NotImplementedError(type.toString())
         }
 
         try { // maybe the socket is no longer available
             bridge.sslTerminal!!.sendDataUnit(packet)
-        } catch (_: Exception) { }
+        } catch (_: Throwable) { }
     }
 
     internal fun cancel() {

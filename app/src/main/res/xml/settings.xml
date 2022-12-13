@@ -10,6 +10,14 @@
         <kittoku.osc.preference.custom.SSLSuitesPreference android:key="SSL_SUITES"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="HTTP Proxy">
+        <kittoku.osc.preference.custom.ProxyDoUseProxyPreference android:key="PROXY_DO_USE_PROXY"/>
+        <kittoku.osc.preference.custom.ProxyHostnamePreference android:key="PROXY_HOSTNAME"/>
+        <kittoku.osc.preference.custom.ProxyPortPreference android:key="PROXY_PORT"/>
+        <kittoku.osc.preference.custom.ProxyUsernamePreference android:key="PROXY_USERNAME"/>
+        <kittoku.osc.preference.custom.ProxyPasswordPreference android:key="PROXY_PASSWORD"/>
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="PPP Layer">
         <kittoku.osc.preference.custom.PPPMruPreference android:key="PPP_MRU"/>
         <kittoku.osc.preference.custom.PPPMtuPreference android:key="PPP_MTU"/>
@@ -23,6 +31,8 @@
 
     <PreferenceCategory android:title="PPP Network Protocol">
         <kittoku.osc.preference.custom.PPPIPv4EnabledPreference android:key="PPP_IPv4_ENABLED"/>
+        <kittoku.osc.preference.custom.PPPDoRequestStaticIPv4AddressPreference android:key="PPP_DO_REQUEST_STATIC_IPv4_ADDRESS"/>
+        <kittoku.osc.preference.custom.PPPStaticIPv4AddressPreference android:key="PPP_STATIC_IPv4_ADDRESS"/>
         <kittoku.osc.preference.custom.PPPIPv6EnabledPreference android:key="PPP_IPv6_ENABLED"/>
     </PreferenceCategory>
 
@@ -47,17 +57,12 @@
         <kittoku.osc.preference.custom.ReconnectionIntervalPreference android:key="RECONNECTION_INTERVAL"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Buffer Size">
-        <kittoku.osc.preference.custom.BufferIncomingPreference android:key="BUFFER_INCOMING"/>
-        <kittoku.osc.preference.custom.BufferOutgoingPreference android:key="BUFFER_OUTGOING"/>
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="Log">
         <kittoku.osc.preference.custom.LogDoSaveLogPreference android:key="LOG_DO_SAVE_LOG"/>
         <kittoku.osc.preference.custom.LogDirPreference android:key="LOG_DIR"/>
     </PreferenceCategory>
 
     <PreferenceCategory>
-        <kittoku.osc.preference.custom.LinkOscPreference android:key="LINK_OSC"/>
+        <kittoku.osc.preference.custom.LinkOscPreference/>
     </PreferenceCategory>
 </PreferenceScreen>
